@@ -1,0 +1,34 @@
+
+
+<div class="container">
+  <div class="mt-5">
+    <div class="col-12 " *ngIf="user$|async as user">
+      <form (ngSubmit)="onUpdate(user)" #userForm="ngForm">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input readonly class="form-control" [(ngModel)]="user.id" name="id" id="id">
+        </div>
+
+        <div class="form-group">
+          <label for="name">name</label>
+          <input required class="form-control" [(ngModel)]="user.name" name="name" id="name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">email</label>
+          <input required class="form-control" [(ngModel)]="user.email" name="email" id="email" type="email" email>
+        </div>
+
+        <div class="form-group">
+          <label for="category">category</label>
+          <input required class="form-control" [(ngModel)]="user.category" name="category" id="category">
+        </div>
+
+        <button [disabled]="userForm.invalid" class="btn btn-success btn-block">Mentés</button>
+
+      </form>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="col">
+    <div class="row-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>price</th>
+            <th>category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let products of products$|async">
+            <td>{{ products.id }}</td>
+            <td>{{ products.name }}</td>
+            <td>{{ products.price }}</td>
+            <td>{{ products.category }}</td>
+            <td>
+              <div role="group" class="btn-group">
+                <button type="button" [routerLink]="['/products/edit', products.id]" class="btn btn-info"><i
+                    class="fa fa-edit"></i></button>
+                <button (click)="onDelete(products)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

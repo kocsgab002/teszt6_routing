@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <div *ngIf=" product$|async as product" class="row">
+    <div class="col-12">
+      <form #userForm="ngForm" (ngSubmit)="onUpdate(product)">
+        <div class="form-group">
+          <label for="id">id</label>
+          <input readonly class="form-control" [(ngModel)]="product.id" name="id" id="id">
+        </div>
+        <div class="form-group">
+          <label for="name">name</label>
+          <input pattern="^[a-zA-Z]{3,20}$" required class="form-control" [(ngModel)]="product.name" name="name"
+            id="name">
+        </div>
+        <div class="form-group">
+          <label for="price">price</label>
+          <input required class="form-control" [(ngModel)]="product.price" name="price" id="price">
+        </div>
+        <div class="form-group">
+          <label for="category">category</label>
+          <input required class="form-control" [(ngModel)]="product.category" name="category" id="category">
+        </div>
+        <button [disabled]="userForm.invalid" class="btn btn-success btn-block">SAVE</button>
+      </form>
+    </div>
+  </div>
+</div>
